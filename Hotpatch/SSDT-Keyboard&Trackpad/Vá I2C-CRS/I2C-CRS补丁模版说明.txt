@@ -1,0 +1,49 @@
+******
+I. Mô tả
+Mẫu này là một bản vá I2C tự động điều chỉnh các chế độ truy vấn và ngắt.
+Thích hợp cho một số máy.
+
+Thứ hai, bản vá
+SSDT-I2C-GPI0
+Mẫu SSDT-I2CX.DEV0_CRS
+Ví dụ về SSDT-I2C1.TPD1_CRS ---- dell5480
+
+Đổi tên
+GPI0: _STA đến XSTA
+DEV0: _CRS đến XCRS (Tên thiết bị I2C của DEV0
+
+Thứ tư, sử dụng
+(1) Kết hợp vá và đổi tên
+SSDT-I2C-GPI0 [Đổi tên: GPI0: _STA thành XSTA]
++
+Mẫu SSDT-I2CX.DEV0_CRS (tự sửa đổi) [đã đổi tên: DEV0: _CRS thành XCRS]
++
+XOSI-Windows (xem XOSI-Windows) [đã đổi tên: _OSI thành XOSI]
+
+Khi GPI0 _STA trở về (0x0F), chế độ ngắt.
+Khi _STA trả về (0x00) của GPI0, chế độ truy vấn.
+
+(2) Sửa đổi mẫu SSDT-I2CX.DEV0_CRS
+Xác nhận tên và đường dẫn thiết bị I2C của riêng bạn, chẳng hạn như: _SB.PCI0.I2C1.TPD1.
+1 Sửa đổi "I2CX" của tệp mẫu thành "I2C1". (Ba nơi)
+2 Sửa đổi "DEV0" của tệp mẫu thành "TPD1". (Hai nơi)
+3 Sửa đổi "0xFFF1" của tệp mẫu thành I2cSerialBusV2 của thiết bị "TPD1" trong DSDT gốc
+4 Sửa đổi "0xFFF2" của tệp mẫu thành Ngắt thiết bị "TPD1" trong DSDT gốc.
+5 Sửa đổi "0xFFF3" của tệp mẫu thành "Ghim GPI0" (chế độ ngắt). Tham khảo "Truy vấn GPI0-pin".
+6 Sửa đổi "FFFFFFFF" trong "Đổi tên mẫu bản vá I2C và CRS" thành dữ liệu nhị phân của TPD1 (54504431).
+
+(Ba) cài đặt trình điều khiển
+Cài đặt trình điều khiển thích hợp dựa trên phần cứng của bạn.
+Địa chỉ tải xuống trình điều khiển:
+https://github.com/alexandred/VoodooI2C/release
+
+
+Năm, chú ý
+1 Chọn trình điều khiển thiết bị I2C chính xác.
+2 Sử dụng "config cấm trình điều khiển hệ thống I2C patch.plist".
+  Hoặc xóa AppleIntelLpssI2C.kext và AppleIntelLpssI2CControll.kext của SLE.
+3 Xóa VoodooPS2Controll.kext \ Nội dung \ PlugIns \:
+  VoodooPS2Trackpad.kext.
+
+
+=== kết thúc
