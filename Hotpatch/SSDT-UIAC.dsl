@@ -18,6 +18,9 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0)
 {
+    External (RMCF.USBP, IntObj)
+    If (\RMCF.USBP == 1)
+    {
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
@@ -1024,6 +1027,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "_UIAC", 0)
                 },
             },
         })
-    }
+    }}
 }
 //EOF

@@ -4,7 +4,10 @@
 DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuPlug", 0x00003000)
 {
     External (_PR.CPU0, ProcessorObj)
-
+    External (RMCF.PLUG, IntObj)
+    
+    If (\RMCF.PLUG == 1)
+    {
     Scope (_PR.CPU0)
     {
         Method (DTGP, 5, NotSerialized)
@@ -46,6 +49,6 @@ DefinitionBlock ("", "SSDT", 2, "CpuRef", "CpuPlug", 0x00003000)
             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
             Return (Local0)
         }
-    }
+    }}
 }
 

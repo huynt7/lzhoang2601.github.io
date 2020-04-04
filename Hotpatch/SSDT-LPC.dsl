@@ -3,7 +3,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "LPC", 0)
 {
 #endif
     External(_SB.PCI0.LPCB, DeviceObj)
-
+    External (RMCF.LPCP, IntObj)
+    
+    If (\RMCF.LPCP == 1)
+    {
     Scope(_SB.PCI0.LPCB)
     {
         OperationRegion(XWLP, PCI_Config, 2, 2)
@@ -55,7 +58,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "LPC", 0)
             // if no match, assume it is supported natively... no inject
             Return (Package() { })
         }
-    }
+    }}
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif

@@ -2,7 +2,7 @@
 DefinitionBlock ("", "SSDT", 2, "hack", "SBUS", 0)
 {
     External (_SB_.PCI0.SBUS, DeviceObj)
-
+    External (RMCF.ABUS, IntObj)
     Scope (_SB.PCI0.SBUS)
     {
         Device (BUS0)
@@ -32,7 +32,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "SBUS", 0)
             }
             Method (_STA, 0, NotSerialized)
             {
-                If (_OSI ("Darwin"))
+                If (\RMCF.ABUS == 1)
                 {
                     Return (0x0F)
                 }

@@ -20,7 +20,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
     External(RMCF.LEVW, IntObj)
     External(RMCF.GRAN, IntObj)
     External(RMCF.FBTP, IntObj)
-
+    External (RMCF.BNLF, IntObj)
+    
+    If (\RMCF.BNLF == 1)
+    {
     External(_SB.PCI0.IGPU, DeviceObj)
     Scope(_SB.PCI0.IGPU)
     {
@@ -248,7 +251,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             ElseIf (Local2 == COFFEELAKE_PWMMAX) { _UID = 19 }
             Else { _UID = 99 }
         }
-    }
+    }}
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif

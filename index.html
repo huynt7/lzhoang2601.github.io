@@ -1,130 +1,163 @@
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-        <title>LiZ Hoang</title>
-        <meta name="description" content="LiZ Hoang">
-        <meta name="author" content="LiZ Hoang">
-        <meta name="copyright" content="LiZ Hoang">
-        <meta name="format-detection" content="telephone=no">
-        <link rel="shortcut icon" href="/img/favicon.png">
-        <meta http-equiv="Cache-Control" content="no-transform">
-        <meta http-equiv="Cache-Control" content="no-siteapp">
-        <link rel="preconnect" href="//cdn.jsdelivr.net">
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin">
-        <link rel="preconnect" href="//busuanzi.ibruce.info">
-<script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
-<script>const autoChangeMode = '2'
-var t = Cookies.get("theme");
-if (autoChangeMode == '1'){
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        LiZ Hoang
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
 
-if (t === undefined){
-  if (isLightMode) activateLightMode()
-  else if (isDarkMode) activateDarkMode()
-  else if (isNotSpecified || hasNoSupport){
-    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-    now = new Date();
-    hour = now.getHours();
-    isNight = hour < 6 || hour >= 18
-    isNight ? activateDarkMode() : activateLightMode()
-}
-} else if (t == 'light') activateLightMode()
-else activateDarkMode()
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
 
+    
+<link rel="stylesheet" href="/css/style.css">
 
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG={root:"/",algolia:void 0,bookmark:{title:"Snackbar.bookmark.title"},runtime_unit:"天",runtime:!0,copyright:{languages:{author:"LiZ Hoang",link:"https://lzhoang2601.github.io"}},ClickShowText:void 0,medium_zoom:!1,fancybox:!0,Snackbar:{bookmark:{title:"Snackbar.bookmark.title"},day_to_night:"Dark Mode: ON",night_to_day:"Dark Mode: OFF",bgLight:"#49b1f5",bgDark:"#121212",position:"bottom-left"},baiduPush:!0,highlightCopy:!0,highlightLang:!0,highlightShrink:!1,isHome:!0,isPost:!1,isFontAwesomeV5:!1}
-</script></head><body>
-        <header>
-            <div id="page-header">
-                <span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LiZ Hoang</a></span>
-                <span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span>
-                <span class="pull_right menus">
-                    <div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i> <span>Home</span></a></div>
-                    <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i> <span>Archives</span></a></div>
-                    <div class="menus_item"><a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa-fw fa fa-youtube"></i> <span>My Channel Youtube</span></a></div>
-                    <div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heart" aria-hidden="true"></i> <span>About Me</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li>Hoàng Hồng Quân</li><li>Sinh ngày 08/03/2005</li><li><a class="site-page" href="https://github.com/lzhoang2601"><i class="fa fa-github"></i> </a> <a class="site-page" href="mallto:lzhoang2601@gmail.com"><i class="fa fa-envelope"></i> </a> <a class="site-page" href="https://facebook.com/lzhoang2601"><i class="fa fa-facebook"></i> </a>  <a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa fa-youtube"></i> </a></li></ul></div></div></span></div></header>
-        <div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/about.jpg" onerror='onerror=null,src="/img/about.jpg"' alt="avatar"></div>
-            <div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Bài viết</div><div class="length_num">2</div></a></div></div></div><hr>
-            <div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i> <span>Home</span></a></div>
-                <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i> <span>Archives</span></a></div>
-                <div class="menus_item"><a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa-fw fa fa-youtube"></i> <span>My Channel Youtube</span></a></div>
-                </div></div></div>
-        <div id="body-wrap"><nav class="full_page" id="nav" style="background-image:url(https://www.power-technology.com/wp-content/uploads/sites/7/2018/12/Neutrino-2-Cell.jpg)"><div id="site-info">
-            <div id="site-title"><span class="blogtitle">LiZ Hoang</span></div>
-            <div id="site-sub-title"><span id="subtitle"></span></div>
-            <div id="site-social-icons">
-                <a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                <a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                <a class="social-icon" href="https://fb.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div>
-        <div id="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div></nav>
-        <main id="content-outer"><div class="layout_page" id="content-inner">
-        <div class="recent-posts" id="recent-posts">
-            <div class="recent-post-item">
-                <div class="post_cover left_radius"><a href="/CreateUSBmacOSInstall/" title="CreateUSBmacOSInstall"><img class="post_bg ls-is-cached lazyloaded" data-src="https://undesigns.net/wp-content/uploads/2018/02/Material-Design-Background-Undesigns-00.jpg" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" alt="CreateUSBmacOSInstall" src="https://undesigns.net/wp-content/uploads/2018/02/Material-Design-Background-Undesigns-00.jpg"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="/CreateUSBmacOSInstall/" title="CreateUSBmacOSInstall">CreateUSBmacOSInstall</a>
-                    <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 24-01-2020</time></div>
-                    <div class="content">Các công cụ cần thiết trong quá trình tạo USB cài Hackintosh và cài Hackintosh macOS HackintoshFileS macOS Catalina, macOS Mojave, macOS High Sierra, macOS Sierra Windows...</div></div></div>
-            <div class="recent-post-item">
-                <div class="post_cover right_radius"><a href="/Hotpatch/" title="Hotpatch"><img class="post_bg lazyloaded" data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyqp-_m9AKlYwIYpvmzEWXuRhfmNYGWb8Md1KB3kchugE-mT48" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" alt="Hotpatch" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRyqp-_m9AKlYwIYpvmzEWXuRhfmNYGWb8Md1KB3kchugE-mT48"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="/Hotpatch/" title="Hotpatch">Hotpatch</a>
-                    <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 24-01-2020</time></div>
-                    <div class="content">Các patch cần thiết giúp hoàn thiện PC/Laptop chạy Hackintosh của bạn Tải xuống Hotpatch Nếu có yêu cầu thêm patch vào Clover/ACPI/patched thì bắt buộc save với định dạng .aml...</div></div></div>
-            <div class="recent-post-item">
-                <div class="post_cover left_radius"><a href="https://youtu.be/tNhxjhcbmFo" title="Xem các video trên kênh của tớ"><img class="post_bg ls-is-cached lazyloaded" data-src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbesthqwallpapers.com%2Fcomputers%2Fyoutube-red-logo-4k-red-brickwall-youtube-logo-brands-113456&psig=AOvVaw3ZJ36tjgIOUl6Nz8_iDsjZ&ust=1585119794880000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjDkM7FsugCFQAAAAAdAAAAABAJ" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" alt="VIII" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fbesthqwallpapers.com%2Fcomputers%2Fyoutube-red-logo-4k-red-brickwall-youtube-logo-brands-113456&psig=AOvVaw3ZJ36tjgIOUl6Nz8_iDsjZ&ust=1585119794880000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjDkM7FsugCFQAAAAAdAAAAABAJ"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="https://youtu.be/tNhxjhcbmFo" title="">Xem các video trên kênh của tớ</a>
-                    <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 12-01-2020</time></div>
-                    <div class="content">Các video hướng dẫn về Hackintosh chi tiết sẽ có ở kênh</div></div></div>
+<body id="bodyx">
+    <div class="hd logodiv">
+    <img src="/img/logo.png" class="logopng">
+    <p class="logot"><span class="logo_1">&lt;</span><span class="logo_2">/</span><span class="logo_3">#</span> LiZ Hoang <span class="logo_3">#</span><span class="logo_2">/</span><span class="logo_1">&gt;</span></p>
+</div>
+<div class="hd">
+    <ol class="breadcrumb">
+        
+            <li><a class="ba" href="https://github.com/lzhoang2601">GitHub</a></li>
+        
+            <li><a class="ba" href="mailto:lzhoang2601">Gmail</a></li>
+        
+            <li><a class="ba" href="https://facebook.com/lzhoang2601">Facebook</a></li>
+        
+            <li><a class="ba" href="https://youtube.com/c/LiZHoang">Youtube</a></li>
+        
+    </ol>
+    <hr class="breadcrumbhr">
+</div>
+<div class="hd">
+        
+            <div class="titlex">
+                <p><span class="jing">#</span>
+                    Posts
+                </p>
             </div>
-        <div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar" src="/img/about.jpg" onerror="this.onerror=null,this.src=&quot;/img/about.jpg&quot;" alt="avatar"><div class="author-info__name">Hoàng Hồng Quân</div><div class="author-info__description">Vọc vạch là đam mê</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Bài viết</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center"><a href="https://youtube.com/c/LiZHoang"><div class="headline">Video</div><div class="length_num">10</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="https://facebook.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div></div></div></div></main></div><footer id="footer" style="background-image:url(https://www.power-technology.com/wp-content/uploads/sites/7/2018/12/Neutrino-2-Cell.jpg)" data-type="photo"><div id="footer-wrap">&copy;2020 by <a href="https://facebook.com/lzhoang2601">LiZ Hoang.</a> Power by<a href="http://hexo.io"> Hexo</a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Night Light"></i><i class="fa fa-plus" id="font_plus" title="Tăng kích thước chữ"></i><i class="fa fa-minus" id="font_minus" title="Giảm kích thước chữ"></i><i class="darkmode fa fa-sun-o" id="darkmode" title="Light/Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Nâng cao"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="Top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/main.js"></script><script src="/js/utils.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>pangu.spacingElementByClassName("article-container")</script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-<script>let subtitleEffect = true
-fetch('https://v1.hitokoto.cn')
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-    let sub = 'Hoàng Hồng Quân,Sinh ngày 08/03/2005,Đam mê vọc vạch phần mềm'.length == 0  ? new Array() : 'Hoàng Hồng Quân,Sinh ngày 08/03/2005,Đam mê vọc vạch phần mềm'.split(",");
-    let typed = new Typed("#subtitle", {
-      strings: sub,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50
-    });
-})
-.catch(function (err) {
-  console.error(err);
-})</script>
+            
+        
+        <a class="flink" href="/CreateUSBmacOSInstall/">
+            <div class="list">
+                <div class="postname">
+                    CreateUSBmacOSInstall
+                </div>
+                <div class="posttime">
+                    24-01-2020
+                </div>
+            </div>
+        </a>
+    
+        
+        
+            <div class="titlex">
+                <p><span class="jing">#</span>
+                    About Me
+                </p>
+            </div>
+            
+        
+        <a class="flink" href="">
+            <div class="list">
+                <div class="postname">
+                    Tên: Hoàng Hồng Quân
+                </div>
+            </div>
+        </a>
+    
+        
+        
+        <a class="flink" href="">
+            <div class="list">
+                <div class="postname">
+                    Ngày sinh: 08/03/2005
+                </div>
+            </div>
+        </a>
+    
+        
+        
+        <a class="flink" href="">
+            <div class="list">
+                <div class="postname">
+                    Sở thích: Đam mê vọc vạch phần mềm
+                </div>
+            </div>
+        </a>
+    
+        
+        
+        <a class="flink" href="">
+            <div class="list">
+                <div class="postname">
+                    Thiết bị: Dell Inspiron 5459 (macOS)
+                </div>
+            </div>
+        </a>
+    
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" href="https://hexo.io" target="_blank" rel="noopener">LiZ Hoang</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+        <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
 
-    </body>
-</html>
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>s

@@ -4,6 +4,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "PS2N", 0)
 {
 #endif
     External(_SB.PCI0.LPCB, DeviceObj)
+    External (RMCF.PS2N, IntObj)
+    
+    If (\RMCF.PS2N == 1)
+    {
     Scope (_SB.PCI0.LPCB)
     {
         Device (PS2N)
@@ -38,7 +42,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "PS2N", 0)
                 }
             }
         }
-    }    
+    }}   
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif

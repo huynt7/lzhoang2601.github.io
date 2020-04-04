@@ -2,25 +2,35 @@
 DefinitionBlock("", "SSDT", 2, "hack", "BrightFN", 0)
 {
 #endif
-    External(_SB.PCI0.LPCB.PS2K, DeviceObj)
-    External(GENS, MethodObj)
-    
-    Method (SMEE, 1, NotSerialized)
-    {
-        Local0 = Arg0
-        Local0 = GENS (0x11, Zero, Zero)
-        If ((Local0 & 0x04))
-        {
-            Notify (\_SB.PCI0.LPCB.PS2K, 0x0406)
-            Notify (\_SB.PCI0.LPCB.PS2K, 0x10)
-        }
+    External (_SB_.PCI0.IGPU, DeviceObj)   
+    External (_SB_.PCI0.IGPU.LCD_, DeviceObj)    
+    External (_SB_.PCI0.LPCB.PS2K, DeviceObj)    
+    External (_SB.PCI0.IGPU.XRT6, MethodObj)
+    External (LCD_, UnknownObj)    
+    External(RMCF.BNFD, IntObj)
 
-        If ((Local0 & 0x02))
+    If (\RMCF.BNFD == 1)
+    { 
+        Scope (_SB.PCI0.IGPU)
         {
-            Notify (\_SB.PCI0.LPCB.PS2K, 0x0405)
-            Notify (\_SB.PCI0.LPCB.PS2K, 0x20)
+            Method (BRT6, 2, NotSerialized)
+            {
+                If (LEqual (Arg0, One))
+                {
+                    Notify (LCD, 0x86)
+                    Notify (\_SB.PCI0.LPCB.PS2K, 0x0406)
+                }
+
+                If (And (Arg0, 0x02))
+                {
+                    Notify (LCD, 0x87)
+                    Notify (\_SB.PCI0.LPCB.PS2K, 0x0405)
+                }
+            }
         }
     }
+    Else
+    {Return (\_SB.PCI0.IGPU.XRT6())}
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif

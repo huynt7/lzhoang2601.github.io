@@ -1,6 +1,6 @@
 //Disables DGPU
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock("", "SSDT", 2, "hack", "NDGP", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "DGPU", 0)
 {
 #endif
     External(_SB.PCI0.PEG.VID._PS0, MethodObj)
@@ -39,6 +39,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "NDGP", 0)
     External(_SB.PCI0.RP13.PXSX._PS0, MethodObj)//Air13IWL
     External(_SB.PCI0.RP13.PXSX._PS3, MethodObj)//Air13IWL
     External(_SB.PCI0.RP13.PXSX.XDSM, MethodObj)//Air13IWL
+    External(RMCF.TGPU, IntObj)
     
     Device(DGPU)
     {
@@ -112,7 +113,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "NDGP", 0)
         
         Method (_STA, 0, NotSerialized)
         {
-            If (_OSI ("Darwin"))
+            If (\RMCF.TGPU == 1)
             {
                 Return (0x0F)
             }

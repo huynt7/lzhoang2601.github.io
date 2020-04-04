@@ -1,49 +1,54 @@
+// Overriding _PTS and _WAK
+
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "_PTSWAK", 0)
 {
 #endif
     External(ZPTS, MethodObj)
     External(ZWAK, MethodObj)
     External(DGPU._ON, MethodObj)
     External(DGPU._OFF, MethodObj)
-    External(EXT1, MethodObj)
-    External(EXT2, MethodObj)
-    External(EXT3, MethodObj)
-    External(EXT4, MethodObj)
-    External(EISC, MethodObj)
-    External(_SI._SST, MethodObj)
     External(XWCF.MPWS, IntObj)
     External(XWCF.MYLD, IntObj)
-    External(_SB.PCI0.XHC, DeviceObj)
+    External(EISC, MethodObj)
+    External(_SB.PCI0.XHC.PMEE, FieldUnitObj)
+    External(_SI._SST, MethodObj)   
+    External(RMCF.SHUT, IntObj)
+    External(RMCF.RUSB, IntObj)
+    External(RMCF.PSWK, IntObj)
     
-    Scope (_SB.PCI0.XHC)
+    If (\RMCF.PSWK == 1)
     {
-        OperationRegion (PMWX, PCI_Config, 0x00, 0x0100)
-        Field (PMWX, AnyAcc, NoLock, Preserve)
+        Method(_PTS, 1)
         {
-            Offset (0x75), 
-            PMXX,   1, //PMEE
-        }
-    }
-
-    Method (_PTS, 1, NotSerialized) //Method (_PTS, 1, Serialized)
-    {
         If (CondRefOf (\XWCF.MPWS))
         {
-            if(\XWCF.MPWS ==1)
+            If(\XWCF.MPWS ==1)
             {
                 Arg0 = 3
+            }
+        }
+
+        If (\RMCF.SHUT == 1)
+        {
+            If (5 == Arg0)
+            {
+                OperationRegion(PMRS, SystemIO, 0x000, 1)
+                //search Processor...if DATA of CPU is 1810, set 0x1830
+                //                   if DATA is 410, set 0x430....
+                Field(PMRS, ByteAcc, NoLock, Preserve)
+                {
+                        , 4,
+                    SLPE, 1,
+                }
+                SLPE =0
+                Sleep(16)
             }
         }
 
         If (CondRefOf (\DGPU._ON))
         {
             \DGPU._ON ()
-        }
-        
-        If (CondRefOf(EXT1))
-        {
-            EXT1(Arg0)
         }
         
         If (3 == Arg0)
@@ -53,22 +58,17 @@ DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
                 \EISC (0x81, 0x16, 0)//dell powerLED
             }
         }
-        
+
         ZPTS(Arg0)
-        
-        If (CondRefOf(EXT2))
-        {
-            EXT2(Arg0)
-        }
-        
+
         If (5 == Arg0)
-        {       
-            \_SB.PCI0.XHC.PMXX = 0
+        {
+            If (\RMCF.RUSB == 1) { If (CondRefOf(\_SB.PCI0.XHC.PMEE)) { \_SB.PCI0.XHC.PMEE = 0 }}//PMXX 
         }
-    }
+        }
     
-    Method (_WAK, 1, NotSerialized) //Method (_WAK, 1, Serialized)
-    {   
+        Method(_WAK, 1)
+        {
         If (CondRefOf (\XWCF.MPWS))
         {
             if(\XWCF.MPWS ==1)
@@ -83,21 +83,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
             \XWCF.MYLD =1
         }
         
-        If (Arg0 < 1 || Arg0 > 5 )
-        {
-            Arg0 = 3
-        }       
-        
+        If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
+
+        Local0 = ZWAK(Arg0)
+
         If (CondRefOf (\DGPU._OFF))
         {
             \DGPU._OFF ()
         }
-        
-        If (CondRefOf(EXT3))
-        {
-            EXT3(Arg0)
-        }
-        
+
         If (3 == Arg0)
         {
             If (CondRefOf (\EISC))
@@ -106,15 +100,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
             }
             If (CondRefOf(\_SI._SST)) { \_SI._SST (1) }
         }
-
-        Local0 = ZWAK(Arg0)
-        
-        If (CondRefOf(EXT4))
-        {
-            EXT4(Arg0)
-        }
-        
+        // return value from original _WAK
         Return (Local0)
+        }
     }
 #ifndef NO_DEFINITIONBLOCK
 }

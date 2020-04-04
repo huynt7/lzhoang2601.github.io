@@ -1,6 +1,7 @@
 //Fake LAN
 DefinitionBlock ("", "SSDT", 2, "ACDT", "FakeLAN", 0x00001000)
 {
+    External(RMCF.FLAN, IntObj)
     Device (RMNE)
     {
         Name (_ADR, Zero)
@@ -24,7 +25,7 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "FakeLAN", 0x00001000)
         
         Method (_STA, 0, NotSerialized)
         {
-            If (_OSI ("Darwin"))
+            If (\RMCF.FLAN == 1)
             {
                 Return (0x0F)
             }
