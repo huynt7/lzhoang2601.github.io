@@ -47,18 +47,20 @@
 
 <h2 id="BootloaderEFI"><a href="#BootloaderEFI" class="headerlink" title="BootloaderEFI"></a>Clover/OpenCore Bootloader EFI</h2>
 <ul>
-    <li><a href="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/CreateUSBmacOSInstall/">Clover Bootloader EFI</a> for all CPU Intel generation and UEFI/Legacy boot mode on Desktop or Laptop</li>
-    <li><a href="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/CreateUSBmacOSInstall/">OpenCore Bootloader EFI</a> for all CPU Intel generation and UEFI/Legacy boot mode on Desktop or Laptop</li>
+    <li><a href="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/CreateUSBmacOSInstall/clover_lzhoang2601.zip">Clover Bootloader EFI</a> for all CPU Intel generation and UEFI/Legacy boot mode on Desktop or Laptop</li>
+    <li><a href=#>OpenCore Bootloader EFI</a> for all CPU Intel generation and UEFI/Legacy boot mode on Desktop or Laptop</li>
 </ul>
 
 <h2 id="InstallClover"><a href="#InstallClover" class="headerlink" title="InstallClover"></a>Cài đặt Clover/OpenCore</h2>
 <ul>
-    <h3>Bạn chỉ việc tạo EFI > 200mb rồi giải nén 1 trong 2 EFI mình đã làm sẳn ở đây vào EFI vừa tạo là được, với những bạn cần cài dualboot Windows thì bạn rename file /EFI/Microsoft/Boot/bootmgfw.efi thành bootmgfw-orig.efi sau đó copy /EFI/CLOVER/CLOVERX64.efi hoặc /EFI/OC/OpenCore/efi vào /EFI/Microsoft/Boot/ rồi rename CLOVERX64.efi hoặc OpenCore.efi thành bootmgfw.efi là xong</h3>
+    <h3>Bạn chỉ việc tạo EFI > 200mb rồi giải nén 1 trong 2 EFI mình đã làm sẳn ở trên vào EFI vừa tạo là xong</h3>
+    <h3>Với những bạn cần cài dualboot Windows thì bạn rename file /EFI/Microsoft/Boot/bootmgfw.efi thành bootmgfw-orig.efi sau đó copy /EFI/CLOVER/CLOVERX64.efi hoặc /EFI/OC/OpenCore/efi vào /EFI/Microsoft/Boot/ rồi rename CLOVERX64.efi hoặc OpenCore.efi thành bootmgfw.efi là xong</h3>
 </ul>
 
 <h2 id="CustomConfig"><a href="#CustomConfig" class="headerlink" title="CustomConfig"></a>Tinh chỉnh Config</h2>
 <ul> 
-    <h3>Với Desktop thì bạn hãy tạm thời bỏ qua bước này (trừ CPU Pentium và Celeron thì bạn cần làm thêm bước cuối mình đã hướng dẫn trong video ở dưới). Còn với Laptop thì bạn hãy vào /EFI/CLOVER/config_laptop/ hoặc /EFI/OC/config_laptop/, tìm đến config chứa tên iGPU của máy bạn, rename nó thành config.plist sau đó thay thế config gốc ở /EFI/CLOVER/ hoặc /EFI/OC/ là được</h3>
+    <h3>Với Desktop thì bạn hãy tạm thời bỏ qua bước này (trừ CPU Pentium và Celeron thì bạn cần làm thêm bước cuối mình đã hướng dẫn trong video ở dưới)</h3>
+    <h3>Còn với Laptop thì bạn hãy vào /EFI/CLOVER/config_laptop/ hoặc /EFI/OC/config_laptop/, tìm đến config chứa tên iGPU của máy bạn, rename nó thành config.plist sau đó thay thế config gốc ở /EFI/CLOVER/ hoặc /EFI/OC/ là được</h3>
 </ul>
 
 <h2>Hoàn thiện Hackintosh:</h2>
