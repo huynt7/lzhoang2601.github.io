@@ -277,7 +277,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url('/img/header-bg.jpg');
+    background-image: url('/img/hackintosh.jpg');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -642,6 +642,10 @@ aside.clients img {
 footer {
     padding: 25px 0;
     text-align: center;
+}
+
+footer .fa {
+    line-height: 40px;
 }
 
 footer span.copyright {
